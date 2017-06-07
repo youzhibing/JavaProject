@@ -13,6 +13,7 @@ public class MyDataSourceTest
         MyDataSource dataSource = MyDataSource.getInstance(10);
         // 1、从池子中获得一个资源对象
         Connection conn = dataSource.getConnection();
+        
         // 2、jdbc的操作
         PreparedStatement pstmt = conn
                 .prepareStatement("select * from student");

@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -34,7 +35,7 @@ public class CollectionStructureTest
 		Map<String, Integer> hashMap = new HashMap<String, Integer>();				// HashMap底层是hash表，数组元素是单向链表(不稳定性/无序性)
 		Map hashTable = new Hashtable();											// Hashtable底层是hash表，线程安全(方法上加了synchronized)
 		SortedMap<String, Integer> sortedMap = new TreeMap<String, Integer>();		// TreeMap底层是红黑树(稳定性/有序性)
-		Map<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();	// 带头尾的双向链表 Entry<K,V>, 元素顺序是插入时的顺序 (稳定性/无序性)
+		Map<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();	// hashMap + LinkedList, 元素顺序是插入时的顺序 (稳定性/无序性)
 		linkedHashMap.put("111", 123);
 		linkedHashMap.put("110", 123);
 		linkedHashMap.put("112", 123);
@@ -43,7 +44,6 @@ public class CollectionStructureTest
 		{
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
-		
 	}
 
 }
